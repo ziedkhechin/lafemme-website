@@ -1,0 +1,158 @@
+					<div id="rightcolumn">
+						<div class="innertube">
+							<div class="sidebar_right_collapse" id="sidebar_right">
+<?php
+	if(!isset($_SESSION['username']))
+	{
+?>
+								<div class="sidebar_widget profile_widget fancy_panel">
+									<div class="fancy_panel_padding">
+										<h3><a href="login.php">S'identifier</a>&nbsp; • &nbsp;<a href="register.php">Inscription</a></h3>
+										<div aria-expanded="true" class="collapse-trigger open">
+											<a href="#"><span class="icon fa-minus tooltip-left tooltipstered"></span> <span class="icon fa-plus tooltip-left tooltipstered"></span></a>
+										</div>
+										<div aria-hidden="false" class="sidebar_content">
+											<div class="login_form">
+												<form action="login.php?mode=login" method="post">
+													<fieldset>
+														<label for="username"><span>Nom d'utilisateur:</span> <input class="inputbox" id="username" maxlength="20" name="username" size="10" title="Username" type="text"></label> <label for="password"><span>Mot de passe:</span> <input autocomplete="off" class="inputbox" id="password" maxlength="100" name="password" size="10" title="Password" type="password"></label><br>
+														<input class="button2 specialbutton" name="login" type="submit" value="Connecter">
+													</fieldset>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+<?php
+	}
+	else
+	{
+?>
+								<div id="sidebar_right" class="sidebar_right_collapse">
+									<div class="sidebar_widget profile_widget fancy_panel">
+										<div class="fancy_panel_padding">
+											<h3>Profile</h3>
+											<div class="collapse-trigger open" aria-expanded="true">
+											<a href="#">
+												<span class="icon fa-minus tooltip-left tooltipstered"></span>
+												<span class="icon fa-plus tooltip-left tooltipstered"></span>
+											</a>
+											</div>            
+											<div class="sidebar_content" aria-hidden="false">
+												<div class="profile_widget_avatar">
+<?php
+	$rq1="SELECT avatar FROM members WHERE username='".$_SESSION['username']."'";
+	$rs1=mysqli_query($con,$rq1);
+?>
+													<img src="<?php while ($row1=mysqli_fetch_assoc($rs1)){echo $row1['avatar'];}  ?>" />
+												</div>
+												<div class="profile_widget_info">
+													<p>Salut, <span class="username"><?php echo $_SESSION['username']; ?></span>!</p>
+													<ul>
+													<li>
+														<a href="memberlist.php?mode=viewprofile&username=<?php echo $_SESSION['username']; ?>" title="Profile">
+															<i class="icon fa-user fa-fw" aria-hidden="true"></i><span>Profile</span>
+														</a>
+													</li>
+                            						<li>
+														<a href="settings.php" title="User Control Panel">
+                           						         <i class="icon fa-sliders fa-fw" aria-hidden="true"></i><span>Paramétres</span>
+														</a>
+                        						    </li>
+													<li>
+														<a href="logout.php" title="Logout">
+															<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Déconnexion</span>
+														</a>
+													</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+<?php
+	}
+?>
+								<div class="sidebar_widget"><img width="300" src="images/SideBar.jpg"></div>
+								<style>
+									@media (max-width: 700px)
+									.sidebar_widget
+									{
+										display: none
+									}
+								</style>
+								<div class="sidebar_widget alt_block forabg">
+									<div class="inner">
+										<ul class="topiclist">
+											<li class="header">
+												<dl class="row-item">
+													<dt>Widget vierge (Alt Block)</dt>
+												</dl>
+											</li>
+										</ul>
+										<div aria-expanded="true" class="collapse-trigger open">
+											<a href="#"><span class="icon fa-minus tooltip-left tooltipstered"></span> <span class="icon fa-plus tooltip-left tooltipstered"></span></a>
+										</div>
+										<ul aria-hidden="false" class="topiclist forums">
+											<li class="row">Certaines informations vont ici! :)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="social_links_footer"><a href="#"><span class="fa fa-twitter"></span></a> <a href="#"><span class="fa fa-facebook"></span></a></div>
+		<div class="page-footer" id="page-footer" role="contentinfo">
+			<div class="navbar_footer" role="navigation">
+				<div class="inner">
+					<ul class="nav-footer linklist" id="nav-footer" role="menubar">
+						<li class="breadcrumbs"><span class="crumb"><a href="index.php" title="Board index"><i class="icon fa-home fa-fw"></i><span>Accueil</span></a></span></li>
+						
+						<li class="rightside">• Toutes les heures sont <span title="UTC+1">UTC+1</span></li>
+						<li class="rightside">
+							<a href="memberlist.php" role="menuitem"><i class="icon fa-shield fa-fw"></i><span>Les membres</span></a>
+						</li>
+						<li class="rightside">
+							<a href="contact.php" role="menuitem"><i class="icon fa-envelope fa-fw"></i><span>Contacter-nous</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="darkenwrapper" id="darkenwrapper">
+				<div class="darken" id="darken">
+					&nbsp;
+				</div>
+			</div>
+			<div class="phpbb_alert" id="phpbb_alert">
+				<a class="alert_close" href="#"><i class="icon fa-times-circle fa-fw"></i></a>
+				<h3 class="alert_title">&nbsp;</h3>
+				<p class="alert_text"></p>
+			</div>
+			<div class="phpbb_alert" id="phpbb_confirm">
+				<a class="alert_close" href="#"><i class="icon fa-times-circle fa-fw"></i></a>
+				<div class="alert_text"></div>
+			</div>
+		</div>
+		<div class="copyright_bar">WEBSITE C&D BY <a href="http://on.fb.me/1zspNmb" target="_blank">ZK</a> AND <a href="https://bit.ly/2jpKPAm" target="_blank">MG</a></div>
+	</div>
+	<script src="js/jquery.min.js?assets_version=21"  type="text/javascript"></script>
+	<script src="js/core.js?assets_version=21" type="text/javascript"></script> 
+	<script src="js/tooltipster.bundle.min.js?assets_version=21" type="text/javascript"></script> 
+	<script src="js/jquery.collapse.js?assets_version=21" type="text/javascript"></script>
+	<script src="js/jquery.collapse_storage.js?assets_version=21" type="text/javascript"></script> 
+	<script src="js/forum_fn.js?assets_version=21" type="text/javascript"></script> 
+	<script src="js/ajax.js?assets_version=21" type="text/javascript"></script> 
+	<script type="text/javascript">
+		var headerbar_height = $('.headerbar').height();
+		$('.particles_container').css({'height': headerbar_height});
+	</script> 
+	<script src="js/particles.js"></script> 
+	<script src="js/particles.app.js"></script> 
+	<script type="text/javascript">
+		$('canvas.particles-js-canvas-el').css({'margin-top': -headerbar_height});
+	</script> 
+	<script src="js/jscolor.js"></script>
+</body>
+</html>

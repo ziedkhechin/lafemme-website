@@ -1,0 +1,14 @@
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta name="author" content="ZIED KHECHIN">
+	<meta name="theme-color" content="#343840">
+	<link rel="icon" href="images/icon-32x32.png" sizes="32x32" />
+	<link rel="icon" href="images/icon-192x192.png" sizes="192x192" />
+	<link rel="apple-touch-icon-precomposed" href="images/icon-180x180.png" />
+	<link href="css/font-awesome.min.css?assets_version=21" rel="stylesheet">
+	<link href="css/stylesheet.css?assets_version=21" rel="stylesheet">
+	<link href="css/lastpostavatar.css?assets_version=21" media="screen" rel="stylesheet" type="text/css">
+	<!--[if lte IE 9]><link href="css/tweaks.css?assets_version=21" rel="stylesheet"><![endif]-->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+	<link class="preset_stylesheet" href="css/Blush.css" rel="stylesheet">
