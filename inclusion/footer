@@ -40,11 +40,7 @@
 											</div>            
 											<div class="sidebar_content" aria-hidden="false">
 												<div class="profile_widget_avatar">
-<?php
-	$rq1="SELECT avatar FROM members WHERE username='".$_SESSION['username']."'";
-	$rs1=mysqli_query($con,$rq1);
-?>
-													<img src="<?php while ($row1=mysqli_fetch_assoc($rs1)){echo $row1['avatar'];}  ?>" />
+													<img src="<?php echo getAvatar($con, $_SESSION['username']); ?>" />
 												</div>
 												<div class="profile_widget_info">
 													<p>Salut, <span class="username"><?php echo $_SESSION['username']; ?></span>!</p>
@@ -80,23 +76,6 @@
 										display: none
 									}
 								</style>
-								<div class="sidebar_widget alt_block forabg">
-									<div class="inner">
-										<ul class="topiclist">
-											<li class="header">
-												<dl class="row-item">
-													<dt>Widget vierge (Alt Block)</dt>
-												</dl>
-											</li>
-										</ul>
-										<div aria-expanded="true" class="collapse-trigger open">
-											<a href="#"><span class="icon fa-minus tooltip-left tooltipstered"></span> <span class="icon fa-plus tooltip-left tooltipstered"></span></a>
-										</div>
-										<ul aria-hidden="false" class="topiclist forums">
-											<li class="row">Certaines informations vont ici! :)</li>
-										</ul>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -135,7 +114,6 @@
 				<div class="alert_text"></div>
 			</div>
 		</div>
-		<div class="copyright_bar">WEBSITE C&D BY <a href="http://on.fb.me/1zspNmb" target="_blank">ZK</a> AND <a href="https://bit.ly/2jpKPAm" target="_blank">MG</a></div>
 	</div>
 	<script src="js/jquery.min.js?assets_version=21"  type="text/javascript"></script>
 	<script src="js/core.js?assets_version=21" type="text/javascript"></script> 
@@ -146,13 +124,7 @@
 	<script src="js/ajax.js?assets_version=21" type="text/javascript"></script> 
 	<script type="text/javascript">
 		var headerbar_height = $('.headerbar').height();
-		$('.particles_container').css({'height': headerbar_height});
-	</script> 
-	<script src="js/particles.js"></script> 
-	<script src="js/particles.app.js"></script> 
-	<script type="text/javascript">
-		$('canvas.particles-js-canvas-el').css({'margin-top': -headerbar_height});
-	</script> 
+	</script>
 	<script src="js/jscolor.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
-	<title>Paramétres • LA FEMME</title>
+	<title>Paramétres • PROTECH</title>
 <?php
 	if(!isset($_SESSION['username']))
 		header("Location: login.php");
@@ -13,9 +13,6 @@
 		{
 			include 'inclusion/header';
 ?>
-			<ul class="nav-breadcrumbs linklist navlinks" id="nav-breadcrumbs" role="menubar">
-				<li class="breadcrumbs" style="max-width: 5049px;"><span class="crumb"><a accesskey="h" href="index.php"><i class="icon fa-home fa-fw"></i><span>Accueil</span></a></span><span class="crumb"><span>Administration</span></span></li>
-			</ul>
 			<div class="page-body" id="page-body" role="main">
 				<div id="maincontainer">
 					<div id="contentwrapper">

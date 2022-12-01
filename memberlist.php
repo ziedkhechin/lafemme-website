@@ -9,7 +9,7 @@
 			{
 				$rq1="SELECT * FROM members WHERE username='".$_REQUEST['username']."'";
 				$rs1=mysqli_query($con,$rq1);
-				if(mysqli_num_rows($rs1)==0 || $_REQUEST['username']=='admin' && $_SESSION['username']!='admin')
+				if(mysqli_num_rows($rs1)==0 || $_REQUEST['username']=='admin' && $_SESSION['role']!='admin')
 				{
 					header("Location: index.php");
 				}
@@ -20,7 +20,7 @@
 <html dir="ltr" lang="fr">
 <head>
 <?php
-					echo '	<title>'.strtoupper($_REQUEST['username']).' • LA FEMME</title>
+					echo '	<title>'.strtoupper($_REQUEST['username']).' • PROTECH</title>
 ';
 					include 'inclusion/header';
 					$rq2="SELECT * FROM members WHERE username='".$_REQUEST['username']."'";
@@ -29,11 +29,9 @@
 					$rq2=mysqli_query($con,$rq2);
 					$rq3=mysqli_query($con,$rq3);
 					$rq4=mysqli_query($con,$rq4);
-					$rows=mysqli_fetch_assoc($rq2)
+					$rows=mysqli_fetch_assoc($rq2);
+                    $avatar=getAvatar($con, $_REQUEST['username']);
 ?>
-			<ul class="nav-breadcrumbs linklist navlinks" id="nav-breadcrumbs" role="menubar">
-				<li class="breadcrumbs" style="max-width: 5049px;"><span class="crumb"><a accesskey="h" href="index.php" itemprop="url"><i class="icon fa-home fa-fw"></i><span>Accueil</span></a></span><span class="crumb"><a accesskey="h" href="memberlist.php"><span>Membres</span></a></span><span class="crumb"><span><?php echo $_REQUEST['username']; ?></span></span></li>
-			</ul>
 			<div class="page-body" id="page-body" role="main">
 				<div id="maincontainer">
 					<div id="contentwrapper">
@@ -43,15 +41,15 @@
 								<div class="panel bg1">
 									<div class="inner">
 										<dl class="left-box">
-											<dt class="profile-avatar"><img class="avatar" src="<?php echo $rows['avatar']; ?>" width="150" height="150" alt="Photo de Profile"></dt>
+											<dt class="profile-avatar"><img class="avatar" src="<?php echo $avatar; ?>" width="150" height="150" alt="Photo de Profile"></dt>
 										</dl>
 										<dl class="left-box details profile-details">
 											<dt>Nom d'utilisateur:</dt>
 											<dd><span><?php echo $rows['username']; ?></span></dd>
 											<dt>Email:</dt>
-											<dd><span><?php echo $rows['email']; ?></span></dd>
+											<dd><span><?php echo "<a href=\"mailto:{$rows['email']}\">{$rows['email']}</a>"; ?></span></dd>
 											<dt>Rang:</dt>
-											<dd><span><?php if($rows['username']!='admin') echo 'Utilisateur'; else echo 'Admin de Site'; ?></span></dd>
+											<dd><span><?php if($rows['role']==='admin') echo 'Admin de Site'; elseif($rows['role']==='user') echo 'Utilisateur'; else echo 'Medecin'; ?></span></dd>
 										</dl>
 									</div>
 								</div>
@@ -85,7 +83,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
-	<title>Membres • LA FEMME</title>
+	<title>Membres • PROTECH</title>
 <?php
 				include 'inclusion/header';
 ?>
@@ -124,15 +122,16 @@
 													<tr class="bg1">
 														<td><?php
 																echo '<span class="rank-img">';
-																if($rows1['username']!='admin')
-																	echo 'Utilisateur';
-																	else
-																	echo 'Admin de Site';
+                                                                if($rows1['role']==='admin')
+                                                                    echo 'Admin de Site';
+                                                                elseif($rows1['role']==='user')
+                                                                    echo 'Utilisateur';
+                                                                else echo 'Medecin';
 																echo '</span><span class="username-coloured">';
-																if($rows1['username']!='admin'||$rows1['username']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin')
+																if($rows1['role']!='admin'||$rows1['role']=='admin'&&isset($_SESSION['role'])&&$_SESSION['role']=='admin')
 																	echo '<a href="memberlist.php?mode=viewprofile&username='.$rows1["username"].'">';
 																echo $rows1['username'];
-																if($rows1['username']!='admin'||$rows1['username']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin')
+																if($rows1['role']!='admin'||$rows1['role']=='admin'&&isset($_SESSION['role'])&&$_SESSION['role']=='admin')
 																	echo '</a>';
 																echo '</span>';
 															?>

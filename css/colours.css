@@ -4,8 +4,8 @@ Colours and backgrounds for common.css
 -------------------------------------------------------------- */
 
 html, body {
-	color: #818181;
-	background-color: #ECF0F1;
+	color: #c5c5c5;
+	background-color: #000000;
 }
 
 body {
@@ -17,7 +17,7 @@ h1 {
 }
 
 h2 {
-	color: #28313F;
+	color: #FFFFFF;
 }
 
 h3 {
@@ -34,7 +34,7 @@ hr {
 Colours and backgrounds for links.css
 -------------------------------------------------------------- */
 
-a { color: #676767; }
+a { color: #FFFFFF  ; }
 a:hover { transition:.2s; }
 
 body.high_contrast_links .navbar_footer a,
@@ -93,7 +93,7 @@ body.content_block_header_block .forumbg .header a:hover, body.content_block_hea
 }
 
 .forabg, .forumbg, .viewtopic_wrapper {
-	background-color: #eeebeb;
+	background-color: #2e2e2e;
 }
 
 .navbar {
@@ -114,8 +114,8 @@ body.content_block_header_block .forumbg .header a:hover, body.content_block_hea
 }
 
 .panel {
-	background-color: #F9F9F9;
-	color: #28313F;
+	background-color: #3f3f3f;
+	color: #FFFFFF;
 }
 
 .post:target .content {
@@ -127,7 +127,7 @@ body.content_block_header_block .forumbg .header a:hover, body.content_block_hea
 }
 
 .bg1 {
-	background-color: #FFFFFF;
+	background-color: #2e2e2e;
 }
 
 table.zebra-list tr:nth-child(odd) td, ul.zebra-list li:nth-child(odd) {
@@ -135,7 +135,7 @@ table.zebra-list tr:nth-child(odd) td, ul.zebra-list li:nth-child(odd) {
 }
 
 .bg2 {
-	background-color: #FFFFFF;
+	background-color: #2e2e2e;
 }
 
 table.zebra-list tr:nth-child(even) td, ul.zebra-list li:nth-child(even) {
@@ -155,7 +155,7 @@ table.zebra-list tr:nth-child(even) td, ul.zebra-list li:nth-child(even) {
 }
 
 .site_logo {
-	background-image: url("../images/logo.png");
+	background-image: url("../images/logo.svg");
 }
 
 /* Horizontal lists
@@ -201,11 +201,11 @@ table.info tbody th {
 /* Misc layout styles
 ---------------------------------------- */
 dl.details dt {
-	color: #000000;
+	color: #FFFFFF;
 }
 
 dl.details dd {
-	color: #536482;
+	color: #b4c2d7;
 }
 
 .sep {
@@ -325,7 +325,7 @@ ul.forums {
 }
 
 ul.topiclist li {
-	color: #4C5D77;
+	color: #cacaca;
 }
 
 ul.topiclist dd {
@@ -337,12 +337,12 @@ ul.topiclist dd {
 	border-left-color: transparent;
 }
 
-li.row {border-bottom-color:  #ECF0F1; background-color: #FFFFFF;}
+li.row {border-bottom-color:  #ECF0F1; background-color: #464545;}
 .forumlist_grid dl.row-item {border-bottom: 1px solid #ECF0F1;}
 
 
 li.row strong {
-	color: #000000;
+	color: #FFFFFF;
 }
 
 li.row:hover {
@@ -371,7 +371,7 @@ body.content_block_header_block li.header dt, body.content_block_header_block li
 /* Content container styles
 ----------------------------------------*/
 .content {
-	color: #333333;
+	color: #FFFFFF;
 }
 
 .content h2, .panel h2 {
@@ -1089,7 +1089,7 @@ Colours and backgrounds for merlin.css
 /* Global Containers
 ---------------------------------------- */
 .fancy_panel {
-	background-color: #FFF;	
+	background-color: #2a2222;
 }
 
 body.content_block_header_stripe li.header {

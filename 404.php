@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
-	<title>404 • LA FEMME</title>
+	<title>404 • PROTECH</title>
 <?php
 		include 'inclusion/header';
 ?>

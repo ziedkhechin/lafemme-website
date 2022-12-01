@@ -17,9 +17,9 @@ a:hover, .navbar_footer a, .copyright_bar a, .social_links_footer a:hover span, 
 .headerbar, body.content_block_header_block li.header, body.content_block_header_stripe li.header:before, .no_avatar, .social_links_footer, .badge, thead tr, .sidebar_block_stripe:before, .fancy_panel:before {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f15f79+0,b24592+100 */
 	background: #f15f79; /* Old browsers */
-	background: -moz-linear-gradient(left,  #f15f79 0%, #b24592 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left,  #f15f79 0%,#b24592 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right,  #f15f79 0%,#b24592 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(left,  #1f1a1a 0%, #b24592 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #1f1a1a 0%,#b24592 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #1f1a1a 0%,#b24592 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f15f79', endColorstr='#b24592',GradientType=1 ); /* IE6-9 */
 }
 
@@ -27,9 +27,9 @@ a:hover, .navbar_footer a, .copyright_bar a, .social_links_footer a:hover span, 
 /* The same as above, just with some opacity */
 .headerbar_overlay_active {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f15f79+0,b24592+100&0.8+0,0.8+100 */
-	background: -moz-linear-gradient(left,  rgba(241,95,121,0.8) 0%, rgba(178,69,146,0.8) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left,  rgba(241,95,121,0.8) 0%,rgba(178,69,146,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right,  rgba(241,95,121,0.8) 0%,rgba(178,69,146,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(left,  #1f1a1a 0%, rgba(178,69,146,0.8) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #1f1a1a 0%,rgba(178,69,146,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #1f1a1a 0%,rgba(178,69,146,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccf15f79', endColorstr='#ccb24592',GradientType=1 ); /* IE6-9 */
 }
 

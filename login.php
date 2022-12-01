@@ -12,14 +12,15 @@
 		if($_POST['password']=="") header('Location: ?error=nopassword');
 		else
 		{
-			$rq="SELECT username FROM members WHERE username='".$_POST['username']."' AND password='".$_POST['password']."'";
+			$rq="SELECT username, role FROM members WHERE username='".$_POST['username']."' AND password='".$_POST['password']."'";
 			$res=mysqli_query($con,$rq);
 			if (mysqli_num_rows($res)==0)
 				header('Location: ?error=wrongusername');
 				else
 				{
 					session_start();
-					$_SESSION["username"]=$_POST['username'];
+					$_SESSION['username']=$_POST['username'];
+					$_SESSION['role']=$_POST['role'];
 					header("Location: index.php");
 					exit;
 				}
@@ -31,7 +32,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
-	<title>Se connecter • LA FEMME</title>
+	<title>Se connecter • PROTECH</title>
 <?php
 		include "inclusion/head_elements";
 ?>
@@ -65,7 +66,7 @@
 						</fieldset>
 					</form>
 					<div class="action-bar" style="margin: 0;">
-						<p><a accesskey="r" class="left-box arrow-left" href="javascript: window.history.back();"><i class="icon fa-angle-left fa-fw icon-black"></i><span>Retourner</span></a></p>
+						<p><a accesskey="r" class="left-box arrow-left" href="javascript: window.history.back();"><i class="icon fa-angle-left fa-fw"></i><span>Retourner</span></a></p>
 					</div>
 				</div>
 			</div>

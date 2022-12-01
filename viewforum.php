@@ -14,11 +14,12 @@
 			$rows1=mysqli_fetch_assoc($rs1);
 			$rq2="SELECT * FROM members WHERE username='".$rows1['author']."'";
 			$rows2=mysqli_fetch_assoc(mysqli_query($con,$rq2));
+            $avatar=getAvatar($con, $rows1['author']);
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
-	<title><?php echo $rows1['title']; ?> • LA FEMME</title>
+	<title><?php echo $rows1['title']; ?> • PROTECH</title>
 <?php
 			include 'inclusion/header';
 			$rq3="SELECT id_c FROM comments c, posts p WHERE c.id_p=p.id_p AND p.id_p=".$_REQUEST['id'];
@@ -26,23 +27,20 @@
 			$rs2=mysqli_query($con,$rq3);
 			$rs3=mysqli_query($con,$rq4);
 ?>
-			<ul class="nav-breadcrumbs linklist navlinks" id="nav-breadcrumbs" role="menubar">
-				<li class="breadcrumbs" style="max-width: 5049px;"><span class="crumb"><a accesskey="h" href="index.php"><i class="icon fa-home fa-fw"></i><span>Accueil</span></a></span><span class="crumb"><a accesskey="h" href="viewforum.php"><span>Publications</span></a></span><span class="crumb"><span><?php echo $rows1['title']; ?></span></span></</li>
-			</ul>
 			<div class="page-body" id="page-body" role="main">
 				<div id="maincontainer">
 					<div id="contentwrapper">
 						<div id="contentcolumn">
 							<div class="innertube">
 								<div class="postprofile_container postprofile_Right postprofile_Vertical">
-									<div class="rules">
+									<!--<div class="rules">
 										<div class="inner">
 											<strong>Règles du forum:</strong><br />
 											Sur le forum, une écriture correcte et lisible est de mise ! Le langage abrégé type « SMS » conviendra parfaitement à votre téléphone portable, mais pas aux discussions sur les forums.
 											Ecrire correctement, faire un minimum attention à son orthographe, à la ponctuation, et aux fautes de frappe, constituent les règles basiques du respect d’autrui. Si vous ne faites pas l’effort de bien écrire, les membres ne feront pas l’effort de vous lire ou de vous répondre.<br /><br />
 											Les propos à caractère politique, religieux, diffamatoire, menaçant, raciste, xénophobe, pédophile, obscène, pornographique sont formellement proscrits. Dans ce contexte, Il est également interdit de publier des liens vers des sites ayant un tel contenu.
 										</div>
-									</div>
+									</div>-->
 									<div class="action-bar bar-top">
 <?php
 			if(isset($_SESSION['username']))
@@ -75,10 +73,10 @@
 												<dl class="postprofile">
 													<dd>
 														<div class="avatar-container">
-															<?php if($rows1['author']!='admin'||$rows1['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '<a class="avatar" href="memberlist.php?mode=viewprofile&username='.$rows2['username'].'">'; ?><img alt="Photo Profile" class="avatar" src="<?php echo $rows2['avatar']; ?>" width="100"><?php if($rows1['author']!='admin'||$rows1['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '</a>'; ?>
+															<?php echo '<a class="avatar" href="memberlist.php?mode=viewprofile&username='.$rows2['username'].'">'; ?><img alt="Photo Profile" class="avatar" src="<?php echo $avatar; ?>" width="100"><?php echo '</a>'; ?>
 														</div>
 													</dd>
-													<?php if($rows1['author']!='admin'||$rows1['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '<a class="username-coloured" style="color: #AA0000;" href="memberlist.php?mode=viewprofile&username='.$rows2['username'].'">'; echo $rows2['username']; ?><?php if($rows1['author']!='admin'||$rows1['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '</a>'; ?>
+													<?php echo '<a class="username-coloured" style="color: #AA0000;" href="memberlist.php?mode=viewprofile&username='.$rows2['username'].'">'; echo $rows2['username']; ?><?php echo '</a>'; ?>
 												</dl>
 												<div class="postbody">
 													<div id="post_content38">
@@ -97,18 +95,17 @@
 <?php
 			while($rows00=mysqli_fetch_assoc($rs3))
 			{
-				$rq01="SELECT avatar FROM members WHERE username='".$rows00['author']."'";
-				$rows01=(mysqli_fetch_assoc(mysqli_query($con,$rq01)));
+                $avatar=getAvatar($con, $rows00['author']);
 ?>
 										<div class="post has-profile">
 											<div class="inner">
 												<dl class="postprofile">
 													<dd>
 														<div class="avatar-container">
-															<?php if($rows00['author']!='admin'||$rows00['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '<a class="avatar" href="memberlist.php?mode=viewprofile&username='.$rows00['author'].'">'; ?><img alt="Photo Profile" class="avatar" src="<?php echo $rows01['avatar']; ?>" width="50"><?php if($rows00['author']!='admin'||$rows00['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '</a>'; ?>
+															<?php echo '<a class="avatar" href="memberlist.php?mode=viewprofile&username='.$rows00['author'].'">'; ?><img alt="Photo Profile" class="avatar" src="<?php echo $avatar; ?>" width="50"><?php echo '</a>'; ?>
 														</div>
 													</dd>
-													<?php if($rows00['author']!='admin'||$rows00['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '<a class="username-coloured" style="color: #AA0000;" href="memberlist.php?mode=viewprofile&username='.$rows00['author'].'">'; echo $rows00['author']; ?><?php if($rows00['author']!='admin'||$rows00['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '</a>'; ?>
+													<?php echo '<a class="username-coloured" style="color: #AA0000;" href="memberlist.php?mode=viewprofile&username='.$rows00['author'].'">'; echo $rows00['author']; ?><?php echo '</a>'; ?>
 												</dl>
 												<div class="postbody">
 													<div id="post_content38">
@@ -146,7 +143,7 @@
 										</div>
 									</div>
 									<div class="action-bar actions-jump">
-										<p class="jumpbox-return"><a accesskey="r" class="left-box arrow-left" href="javascript: window.history.back();"><i class="icon fa-angle-left fa-fw icon-black"></i><span>Retourner</span></a></p>
+										<p class="jumpbox-return"><a accesskey="r" class="left-box arrow-left" href="javascript: window.history.back();"><i class="icon fa-angle-left fa-fw"></i><span>Retourner</span></a></p>
 									</div>
 								</div>
 							</div>
@@ -171,13 +168,10 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
-	<title><?php $rows1=mysqli_fetch_assoc($rs1); echo $rows1['name']; ?> • LA FEMME</title>
+	<title><?php $rows1=mysqli_fetch_assoc($rs1); echo $rows1['name']; ?> • PROTECH</title>
 <?php
 			include 'inclusion/header';
 ?>
-			<ul class="nav-breadcrumbs linklist navlinks" id="nav-breadcrumbs" role="menubar">
-				<li class="breadcrumbs" style="max-width: 5049px;"><span class="crumb"><a accesskey="h" href="index.php"><i class="icon fa-home fa-fw"></i><span>Accueil</span></a></span><span class="crumb"><a accesskey="h" href="viewforum.php"><span>Publications</span></a></span><span class="crumb"><span>Catégories</span></span><span class="crumb"><span><?php echo $rows1['name']; ?></span></span></</li>
-			</ul>
 			<div class="page-body" id="page-body" role="main">
 				<div id="maincontainer">
 					<div id="contentwrapper">
@@ -207,12 +201,11 @@
 		{
 			while($rows2=mysqli_fetch_assoc($rs1))
 			{
-				$rq2="SELECT avatar FROM members WHERE username='".$rows2['author']."'";
 				$rq3="SELECT id_c FROM comments c, posts p WHERE c.id_p=p.id_p AND p.id_p=".$rows2['id_p'];
 				$rq4="SELECT name FROM category cat, posts p WHERE cat.id_cat=p.category AND p.id_p=".$rows2['id_p'];
-				$rs2=mysqli_query($con,$rq2);
 				$rs3=mysqli_query($con,$rq3);
 				$rs4=mysqli_query($con,$rq4);
+                $avatar=getAvatar($con, $rows2['author']);
 			
 ?>
 													<li class="row has_last_post_avatar">
@@ -222,7 +215,7 @@
 																	<a href="viewforum.php?id=<?php echo $rows2['id_p']; ?>" class="forumtitle"><?php echo $rows2['title']; ?></a>
 																	<br /><span class="forum_description"><?php $a=mysqli_fetch_assoc($rs4); echo $a['name']; ?></span>
 																	<div class="responsive-show responsive_forumlist_row_stats" style="display: none;">
-																		Par: <strong><?php if($rows2['author']!='admin'||$rows2['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '<a href="memberlist.php?mode=viewprofile&username='.$rows2['author'].'" style="color: #AA0000;" class="username-coloured">'; echo $rows2['author']; if($rows2['author']!='admin'||$rows2['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '</a>'; ?></strong>
+																		Par: <strong><?php echo '<a href="memberlist.php?mode=viewprofile&username='.$rows2['author'].'" style="color: #AA0000;" class="username-coloured">'; echo $rows2['author']; echo '</a>'; ?></strong>
 																		&nbsp;| Commentaires: <strong><?php echo mysqli_num_rows($rs3); ?></strong>
 																	</div>
 																</div>
@@ -232,8 +225,8 @@
 																<span>
 																	<dfn>Last post</dfn>
 																	
-																	<span class="lastpostavatar"><img class="avatar" src="<?php $a=mysqli_fetch_assoc($rs2); echo $a['avatar']; ?>" width="30" height="30" title="Photo de Profile" alt="Photo de Profile"></span>
-																	par <?php if($rows2['author']!='admin'||$rows2['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '<a href="memberlist.php?mode=viewprofile&username='.$rows2['author'].'" style="color: #AA0000;" class="username-coloured">'; echo $rows2['author']; if($rows2['author']!='admin'||$rows2['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '</a>'; ?>
+																	<span class="lastpostavatar"><img class="avatar" src="<?php echo $avatar; ?>" width="30" height="30" title="Photo de Profile" alt="Photo de Profile"></span>
+																	par <?php echo '<a href="memberlist.php?mode=viewprofile&username='.$rows2['author'].'" style="color: #AA0000;" class="username-coloured">'; echo $rows2['author']; echo '</a>'; ?>
                                                                     <br /><br /><?php echo $rows2['date']; ?>
 																</span>
 															</dd>
@@ -260,13 +253,10 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
-	<title>Dernière Activités • LA FEMME</title>
+	<title>Dernière Activités • PROTECH</title>
 <?php
 		include 'inclusion/header';
 ?>
-			<ul class="nav-breadcrumbs linklist navlinks" id="nav-breadcrumbs" role="menubar">
-				<li class="breadcrumbs" style="max-width: 5049px;"><span class="crumb"><a accesskey="h" href="index.php"><i class="icon fa-home fa-fw"></i><span>Accueil</span></a></span><span class="crumb"><a accesskey="h" href="viewforum.php"><span>Publications</span></a></span><span class="crumb"><span>Dernière Activités</span></span></li>
-			</ul>
 			<div class="page-body" id="page-body" role="main">
 				<div id="maincontainer">
 					<div id="contentwrapper">
@@ -296,12 +286,11 @@
 		{
 			while($rows=mysqli_fetch_assoc($rs1))
 			{
-				$rq2="SELECT avatar FROM members WHERE username='".$rows['author']."'";
 				$rq3="SELECT id_c FROM comments c, posts p WHERE c.id_p=p.id_p AND p.id_p=".$rows['id_p'];
 				$rq4="SELECT name FROM category cat, posts p WHERE cat.id_cat=p.category AND p.id_p=".$rows['id_p'];
-				$rs2=mysqli_query($con,$rq2);
 				$rs3=mysqli_query($con,$rq3);
 				$rs4=mysqli_query($con,$rq4);
+                $avatar=getAvatar($con, $rows['author']);
 			
 ?>
 													<li class="row has_last_post_avatar">
@@ -311,7 +300,7 @@
 																	<a href="viewforum.php?id=<?php echo $rows['id_p']; ?>" class="forumtitle"><?php echo $rows['title']; ?></a>
 																	<br /><span class="forum_description"><a href="viewforum.php?category=<?php echo $rows['category']; ?>"><?php $a=mysqli_fetch_assoc($rs4); echo $a['name']; ?></a></span>						                                                            
 																	<div class="responsive-show responsive_forumlist_row_stats" style="display: none;">
-																		Par: <strong><?php if($rows['author']!='admin'||$rows['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '<a href="memberlist.php?mode=viewprofile&username='.$rows['author'].'" style="color: #AA0000;" class="username-coloured">'; echo $rows['author']; if($rows['author']!='admin'||$rows['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '</a>'; ?></strong>
+																		Par: <strong><?php echo '<a href="memberlist.php?mode=viewprofile&username='.$rows['author'].'" style="color: #AA0000;" class="username-coloured">'; echo $rows['author']; echo '</a>'; ?></strong>
 																		&nbsp;| Commentaires: <strong><?php echo mysqli_num_rows($rs3); ?></strong>
 																	</div>
 																</div>
@@ -321,8 +310,8 @@
 																<span>
 																	<dfn>Last post</dfn>
 																	
-																	<span class="lastpostavatar"><img class="avatar" src="<?php $a=mysqli_fetch_assoc($rs2); echo $a['avatar']; ?>" width="30" height="30" title="Photo de Profile" alt="Photo de Profile"></span>
-																	par <?php if($rows['author']!='admin'||$rows['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '<a href="memberlist.php?mode=viewprofile&username='.$rows['author'].'" style="color: #AA0000;" class="username-coloured">'; echo $rows['author']; if($rows['author']!='admin'||$rows['author']=='admin'&&isset($_SESSION['username'])&&$_SESSION['username']=='admin') echo '</a>'; ?>
+																	<span class="lastpostavatar"><img class="avatar" src="<?php echo $avatar; ?>" width="30" height="30" title="Photo de Profile" alt="Photo de Profile"></span>
+																	par <?php echo '<a href="memberlist.php?mode=viewprofile&username='.$rows['author'].'" style="color: #AA0000;" class="username-coloured">'; echo $rows['author']; echo '</a>'; ?>
                                                                     <br /><br /><?php echo $rows['date']; ?>
 																</span>
 															</dd>

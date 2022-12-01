@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
-	<title>500 • LA FEMME</title>
+	<title>500 • PROTECH</title>
 <?php
 		include 'inclusion/header';
 ?>

@@ -4,7 +4,7 @@
 </head>
 <body class="notouch section-viewforum ltr sidebar-right-only body-layout-Fluid content_block_header_block hasjs" id="" style="">
 <?php
-	if(isset($_SESSION['username'])&&$_SESSION['username']=='admin')
+	if(isset($_SESSION['role'])&&$_SESSION['role']=='admin')
 	{
 ?>
 	<div style="min-height: 31px;"></div>
@@ -68,15 +68,12 @@
 					</ul>
 				</div>
 			</div>
-			<div class="headerbar has_navbar" role="banner" style="background:url('images/cover.png') no-repeat center center;">
+			<div class="headerbar has_navbar" role="banner">
 				<div class="headerbar_overlay_container headerbar_overlay_active">
-					<div class="particles_container" id="particles-js" style="height: 286px;">
+					<div class="particles_container" style="height: 196px;">
 						<div class="site-description" id="site-description">
 							<a class="logo" href="index.php" id="logo" title="Board index"><span class="site_logo"></span></a>
-							<h1>Forum Pour Les Dames</h1>
-							<p>spécialisé pour les questions et besoins<br />des femmes.</p>
 						</div>
-						<canvas class="particles-js-canvas-el" height="284" style="width: 100%; height: 100%; margin-top: -286px;" width="5396"></canvas>
 					</div>
 				</div>
 			</div>

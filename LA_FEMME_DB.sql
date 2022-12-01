@@ -5,7 +5,7 @@ CREATE TABLE `members` (
   `avatar` varchar(200) NOT NULL,
   `date_j` varchar(10) NOT NULL
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-INSERT INTO `members` VALUES ('admin', 'admin@admin', '0admin0', 'images/admin_avatar.png','');
+INSERT INTO `members` VALUES ('admin', 'admin@admin', '0admin0', 'images/admin_avatar.svg','');
 
 
 CREATE TABLE `category` (

@@ -13,13 +13,11 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
-	<title>Contacter-nous • LA FEMME</title>
+	<title>Contacter-nous • PROTECH</title>
 <?php
 		include 'inclusion/header';
 ?>
-			<ul class="nav-breadcrumbs linklist navlinks" id="nav-breadcrumbs" role="menubar">
-				<li class="breadcrumbs" style="max-width: 5049px;"><span class="crumb"><a accesskey="h" href="index.php" itemprop="url"><i class="icon fa-home fa-fw"></i><span>Accueil</span></a></span><span class="crumb"><span>Contacter-nous</span></span></li>
-			</ul><a class="anchor" id="start_here"></a>
+			<a class="anchor" id="start_here"></a>
 			<div class="page-body" id="page-body" role="main">
 				<div id="maincontainer">
 					<div id="contentwrapper">
