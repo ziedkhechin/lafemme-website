@@ -50,11 +50,6 @@
 															<i class="icon fa-user fa-fw" aria-hidden="true"></i><span>Profile</span>
 														</a>
 													</li>
-                            						<li>
-														<a href="settings.php" title="User Control Panel">
-                           						         <i class="icon fa-sliders fa-fw" aria-hidden="true"></i><span>Paramétres</span>
-														</a>
-                        						    </li>
 													<li>
 														<a href="logout.php" title="Logout">
 															<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Déconnexion</span>
@@ -68,14 +63,6 @@
 <?php
 	}
 ?>
-								<div class="sidebar_widget"><img width="300" src="images/SideBar.jpg"></div>
-								<style>
-									@media (max-width: 700px)
-									.sidebar_widget
-									{
-										display: none
-									}
-								</style>
 							</div>
 						</div>
 					</div>

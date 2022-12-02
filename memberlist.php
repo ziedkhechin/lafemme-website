@@ -9,7 +9,7 @@
 			{
 				$rq1="SELECT * FROM members WHERE username='".$_REQUEST['username']."'";
 				$rs1=mysqli_query($con,$rq1);
-				if(mysqli_num_rows($rs1)==0 || $_REQUEST['username']=='admin' && $_SESSION['role']!='admin')
+				if(mysqli_num_rows($rs1)==0)
 				{
 					header("Location: index.php");
 				}

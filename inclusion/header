@@ -48,12 +48,6 @@
 									</li>
 									<li class="separator"></li>
 									<li>
-										<a href="settings.php" title="Paramétres" accesskey="x" role="menuitem">
-											<i class="icon fa-power-off fa-fw"></i><span>Paramétres</span>
-										</a>
-									</li>
-									<li class="separator"></li>
-									<li>
 										<a href="logout.php" title="Logout" accesskey="x" role="menuitem">
 											<i class="icon fa-power-off fa-fw"></i><span>Déconnexion</span>
 										</a>

@@ -65,7 +65,7 @@
 <?php
 	}
 ?>
-										<div class="forabg">
+										<div class="forabg" style="display: none;">
 											<div class="inner">
 												<ul class="topiclist">
 													<li class="header">
