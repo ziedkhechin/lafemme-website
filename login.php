@@ -18,9 +18,10 @@
 				header('Location: ?error=wrongusername');
 				else
 				{
+                    $rows=mysqli_fetch_assoc($res);
 					session_start();
 					$_SESSION['username']=$_POST['username'];
-					$_SESSION['role']=$_POST['role'];
+					$_SESSION['role']=$rows['role'];
 					header("Location: index.php");
 					exit;
 				}

@@ -38,8 +38,8 @@
 												<ul class="topiclist forums">
 													<div class="row has_last_post_avatar">
 													<form style="margin: 22px 0 22px 10px;" method="post" action="posting.php?mode=post"">
-														<input required name="subject" class="inputbox" style="height: 33px; width: 62%; border-color: #edecec; background-color: #FFFFFF;" placeholder="Ecrire le titre de votre sujet" type="text" maxlength="65" />
-														<select required name="category" style="margin-left: 2%; height: 33px; width: 34.6%; border-color: #edecec; background-color: #FFFFFF; color: #333333;">
+														<input required name="subject" class="inputbox" style="height: 33px; width: 62%; border-color: #edecec; background-color: #4e4e4e;color: #FFFFFF;" placeholder="Ecrire le titre de votre sujet" type="text" maxlength="65" />
+														<select required name="category" style="margin-left: 2%; height: 33px; width: 34.6%; border-color: #edecec; background-color: #4e4e4e; color: #FFFFFF;">
 															<option selected label="Sélectionner un catégorie"></option>
 <?php
 		$rq1="SELECT * FROM category";
@@ -50,7 +50,7 @@
 		}
 ?>
 														</select><br /><br />
-														<textarea required type="text" placeholder="Exprimez-vous" rows="7" class="inputbox" style="width: 97.5%; border-color: #edecec; background-color: #FFFFFF; color: #333333;" maxlength="2000" name="text"></textarea>
+														<textarea required type="text" placeholder="Exprimez-vous" rows="7" class="inputbox" style="width: 97.5%; border-color: #edecec; background-color: #4e4e4e; color: #FFFFFF;" maxlength="2000" name="text"></textarea>
 														<input type="hidden" name="date_cur" id="date_cur" /><br /><br />
 														<script>
 															var d=new Date;
@@ -142,16 +142,9 @@
 													<li class="header">
 														<dl class="row-item">
 															<dt><div class="list-inner">Catégories de discussion</div></dt>
-															<dd style="margin-left: 360px;" title="Nombre de postes" class="posts"><span class="icon fa-book"></span></dd>
 														</dl>
 													</li>
 												</ul>
-												<div class="collapse-trigger open">
-													<a href="#">
-														<span class="icon fa-minus tooltip-left tooltipstered"></span>
-														<span class="icon fa-plus tooltip-left tooltipstered"></span>
-													</a>
-												</div>
 												<ul class="topiclist forums">
 <?php
 	$rq1="SELECT * FROM category";
@@ -188,51 +181,6 @@
 										</div>
 									</div>
 								</div>
-									<div class="post_forumlist_links"></div>
-									<div class="forumbg alt_block">
-										<div class="inner">
-											<ul class="topiclist">
-												<li class="header">
-													<dl class="row-item">
-														<dt>
-														<div class="list-inner">
-																<i class="fa fa-line-chart"></i>&nbsp;&nbsp;Informations
-															</div>
-														</dt>
-													</dl>
-												</li>
-											</ul>
-											<ul class="topiclist forums">
-<?php
-	if(!isset($_SESSION['username']))
-	{
-?>
-												<li class="row responsive-hide stat_login_hide">
-													<form action="login.php?mode=login" class="headerspace" method="post">
-														<h3><a href="login.php">Login</a>&nbsp; • &nbsp;<a href="register.php">Register</a></h3>
-														<fieldset class="quick-login">
-															<label for="username"><span>Nom d'utilisateur:</span> <input class="inputbox" id="username" name="username" size="10" tabindex="1" type="text"></label> <label for="password"><span>Mot de passe:</span> <input autocomplete="off" class="inputbox" id="password" name="password" size="10" tabindex="2" type="password"></label> <input class="button2" name="login" tabindex="5" type="submit" value="Connecter">
-														</fieldset>
-													</form>
-												</li>
-<?php
-	}
-	$rq1="SELECT id_p FROM posts";
-	$rq2="SELECT id_c FROM comments";
-	$rq3="SELECT username FROM members";
-	$rs1=mysqli_query($con,$rq1);
-	$rs2=mysqli_query($con,$rq2);
-	$rs3=mysqli_query($con,$rq3);
-?>
-												<li class="row">
-													<div class="stat-block statistics">
-														<h3>Statistiques</h3>
-														<p>Total des publications <strong><?php echo mysqli_num_rows($rs1); ?></strong> • Total des commentaires <strong><?php echo mysqli_num_rows($rs2); ?></strong> • Total membres <strong><?php echo mysqli_num_rows($rs3); ?></strong></p>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
 							</div>
 						</div>
 					</div>

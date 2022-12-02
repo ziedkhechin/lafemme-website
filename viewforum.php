@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include "connectDB.php";
+var_dump($_SESSION);
 	if (isset($_REQUEST['id']) && !empty($_REQUEST['id']) && !isset($_REQUEST['category']))
 	{
 		$rq1="SELECT * FROM posts WHERE id_p='".$_REQUEST['id']."'";
@@ -109,7 +110,12 @@
 												</dl>
 												<div class="postbody">
 													<div id="post_content38">
-														<p class="author"><i class="icon fa-clock-o"></i> <?php echo $rows00['date']; ?></p>
+														<p class="author">
+                                                            <i class="icon fa-clock-o"></i> <?php echo $rows00['date']; ?>
+                                                            <?php
+                                                                if(isset($_SESSION['role'])&&$_SESSION['role']=='admin') echo '&nbsp;&nbsp;<button><i class="icon fa-trash" style="color: #ff3838"></i></button>';
+                                                            ?>
+                                                        </p>
 														<div class="content"><?php echo $rows00['text']; ?></div>
 													</div>
 												</div>

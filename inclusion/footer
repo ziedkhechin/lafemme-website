@@ -69,7 +69,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="social_links_footer"><a href="#"><span class="fa fa-twitter"></span></a> <a href="#"><span class="fa fa-facebook"></span></a></div>
 		<div class="page-footer" id="page-footer" role="contentinfo">
 			<div class="navbar_footer" role="navigation">
 				<div class="inner">
@@ -79,9 +78,6 @@
 						<li class="rightside">• Toutes les heures sont <span title="UTC+1">UTC+1</span></li>
 						<li class="rightside">
 							<a href="memberlist.php" role="menuitem"><i class="icon fa-shield fa-fw"></i><span>Les membres</span></a>
-						</li>
-						<li class="rightside">
-							<a href="contact.php" role="menuitem"><i class="icon fa-envelope fa-fw"></i><span>Contacter-nous</span></a>
 						</li>
 					</ul>
 				</div>

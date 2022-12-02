@@ -127,7 +127,7 @@ body.content_block_header_block .forumbg .header a:hover, body.content_block_hea
 }
 
 .bg1 {
-	background-color: #2e2e2e;
+	background-color: #4c4848;
 }
 
 table.zebra-list tr:nth-child(odd) td, ul.zebra-list li:nth-child(odd) {
@@ -365,7 +365,7 @@ body.content_block_header_block li.header dt, body.content_block_header_block li
 /* Post body styles
 ----------------------------------------*/
 .postbody {
-	color: #333333;
+	color: #FFFFFF;
 }
 
 /* Content container styles
@@ -1209,4 +1209,8 @@ p.author, p.author a {
 .dropdown-contents > li > a:hover {
 	color: #FFFFFF;
 	text-decoration: none;
+}
+
+::placeholder {
+	color: #b4b4b4 !important;
 }

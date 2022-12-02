@@ -21,12 +21,7 @@
 								<h2 class="ucp-title">Administration</h2>
 								<div id="tabs" class="tabs">
 									<ul>
-										<li class="tab"><a href="./ucp.php?i=177">Overview</a></li>
-										<li class="tab"><a href="./ucp.php?i=178">Profile</a></li>
-										<li class="tab"><a href="./ucp.php?i=179">Board preferences</a></li>
-										<li class="tab"><a href="./ucp.php?i=ucp_pm">Private messages</a></li>
-										<li class="tab activetab"><a href="./ucp.php?i=181">Usergroups</a></li>
-										<li class="tab"><a href="./ucp.php?i=182">Friends &amp; Foes</a></li>
+										<li class="tab activetab"><a>Usergroups</a></li>
 										<li class="tab responsive-tab dropdown-container" style="display:none;"><a href="javascript:void(0);" class="responsive-tab-link dropdown-toggle">&nbsp;</a><div class="dropdown tab-dropdown" style="display: none;"><div class="pointer"><div class="pointer-inner"></div></div><ul class="dropdown-contents"></ul></div></li>
 									</ul>
 								</div>
@@ -36,8 +31,7 @@
 											<div id="cp-menu" class="cp-menu">
 												<div id="navigation" class="navigation" role="navigation">
 													<ul>
-														<li id="active-subsection" class="active-subsection"><a href="./ucp.php?i=ucp_groups&amp;mode=membership"><span>Edit memberships</span></a></li>
-														<li><a href="./ucp.php?i=ucp_groups&amp;mode=manage"><span>Manage groups</span></a></li>
+														<li id="active-subsection" class="active-subsection"><a><span>Edit memberships</span></a></li>
 													</ul>
 												</div>
 											</div>
